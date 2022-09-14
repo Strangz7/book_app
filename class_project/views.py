@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 
@@ -21,11 +21,19 @@ def redirect(request):
 
 
 def book_list(request):
-    books = Book.objects.all()
+    # books = Book.objects.all()
+    # books = Book.objects.filter(genre='ROMANCE')
+    books = Book.objects.filter(price__gt=50.00)
+
     return render(request, 'my_app/book-list.html', {'books': list(books)})
 
 
 
 def book_detail(request, pk):
-    book = Book.objects.get(pk=pk)
+    # try:
+    #     book = Book.objects.get(pk=pk)
+    #     return render(request, 'my_app/book-detail.html', {'book': book})
+    # except Book.DoesNotExist:
+    #     return HttpResponse("Good bye")
+    book = get_object_or_404(Book, pk=pk)
     return render(request, 'my_app/book-detail.html', {'book': book})
