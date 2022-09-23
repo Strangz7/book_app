@@ -32,16 +32,19 @@ ALLOWED_HOSTS = []
 
 # Application definition
 DJANGO_APPS = [
-    'django.contrib.admin',
+    'djangoProject.apps.DjangoProjectAdminConfig',
+    # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
 ]
 
 THIRD_PARTY_APPS = [
     'debug_toolbar',
+    'rest_framework',
 ]
 
 LOCAL_APPS = [
@@ -140,3 +143,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
+
+
+ADMIN_URL = "admin/"

@@ -3,7 +3,7 @@ from django.db import models
 
 class Book(models.Model):
     GENRE_CHOICES = (
-        ('COMEDY', 'Comedy'),
+         ('COMEDY', 'Comedy'),
         ('TRAGEDY', 'Tragedy'),
         ('FICTION', 'Fiction'),
         ('NON_FICTION', 'Non Fiction'),
